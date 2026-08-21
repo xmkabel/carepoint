@@ -1,16 +1,27 @@
-import swaggerJSDoc from "swagger-jsdoc";
+import { Express } from "express";
+import swaggerUi from "swagger-ui-express";
+import swaggerJsdoc from "swagger-jsdoc";
 
-export const swaggerOptions: swaggerJSDoc.Options = {
-  definition: {
-    openapi: "3.0.0",
-    info: {
-      title: "Carepoint API",
-      version: "1.0.0",
-      description: "API for booking and managing medical appointments between patients, doctors, and admins.",
+const options = {
+    definition: {
+        openapi: "3.0.0",
+        info: {
+            title: "Clinic Booking System API",
+            version: "1.0.0",
+            description: "API documentation for the Clinic Booking System backend",
+        },
+        servers: [
+            {
+                url: "http://localhost:3000",
+                description: "Local server",
+            },
+        ],
     },
-  },
-
-  apis: ["./src/routes/*.ts"],
+    apis: ["./src/routes/*.ts"], 
 };
 
-export const specs = swaggerJSDoc(swaggerOptions);
+const specs = swaggerJsdoc(options);
+
+export const swaggerDocs = (app: Express) => {
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+};
