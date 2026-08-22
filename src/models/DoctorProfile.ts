@@ -3,17 +3,18 @@ import mongoose from "mongoose";
 export interface IDoctorProfile {
     userId : mongoose.Types.ObjectId;
     Specialty: String;
-    experienceYears: String;
+    experienceYears: number;
     ClinicAddress: String;
     ConsultationFee: Number;
     WorkingHours: Number;
-    AvailabilityStatus: boolean; 
+    availabilityStatus: boolean; 
 }
 
 const DoctorProfileSchema = new mongoose.Schema(
     {
         userId:{
             type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
             required:true,
             unique:true,
         },
@@ -37,7 +38,11 @@ const DoctorProfileSchema = new mongoose.Schema(
         availabilityStatus: {
             type: Boolean,
             default: true, 
-        }
+        },
+        workingHours: {
+            type: Number,
+            default: true, 
+        },
     }
 );
 
