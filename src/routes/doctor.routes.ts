@@ -37,19 +37,19 @@ router.get("/browse", getDoctorsWithDetails);
  *             required:
  *               - specialty
  *               - experienceYears
- *               - clinicAddress
- *               - consultationFee
+ *               - ClinicAddress
+ *               - ConsultationFee
  *             properties:
- *               specialty:
+ *               Specialty:
  *                 type: string
  *                 example: Dentist
  *               experienceYears:
  *                 type: number
  *                 example: 5
- *               clinicAddress:
+ *               ClinicAddress:
  *                 type: string
  *                 example: Cairo, Nasr City
- *               consultationFee:
+ *               ConsultationFee:
  *                 type: number
  *                 example: 300
  *     responses:

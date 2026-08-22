@@ -8,7 +8,7 @@ const router = Router();
 
 /**
  * @swagger
- * /api/appointment/book:
+ * /api/appointments/book:
  *   post:
  *     summary: Book an appointment with a doctor
  *     tags: [Appointments]
@@ -42,7 +42,7 @@ router.post("/book", auth,bookAppointmentValidator,validatorMiddleware, bookAppo
 
 /**
  * @swagger
- * /api/appointment/patient:
+ * /api/appointments/patient:
  *   get:
  *     summary: Get all appointments for the logged-in patient
  *     tags: [Appointments]
@@ -54,7 +54,7 @@ router.get("/patient", auth, getPatientAppointments);
 
 /**
  * @swagger
- * /api/appointment/cancel/{appointmentId}:
+ * /api/appointments/cancel/{appointmentId}:
  *   delete:
  *     summary: Cancel an appointment and restore the time slot
  *     tags: [Appointments]
@@ -73,7 +73,7 @@ router.delete("/cancel/:appointmentId", auth, cancelAppointment);
 
 /**
  * @swagger
- * /api/appointment/doctor:
+ * /api/appointments/doctor:
  *   get:
  *     summary: Get all appointments for the logged-in doctor
  *     tags: [Appointments]
@@ -85,7 +85,7 @@ router.get("/doctor", auth, getDoctorAppointments);
 
 /**
  * @swagger
- * /api/appointment/status/{appointmentId}:
+ * /api/appointments/status/{appointmentId}:
  *   patch:
  *     summary: Update appointment status
  *     tags: [Appointments]
