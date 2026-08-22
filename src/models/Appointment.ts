@@ -6,16 +6,19 @@ export interface IAppointment {
     appointmentDate: Date;
     timeSlot: string;
     status: "Pending" | "Confirmed" | "Completed" | "Cancelled";
+    notes?: string;
 }
 
 const appointmentSchema = new mongoose.Schema(
     {
         patientId: {
             type: mongoose.Schema.Types.ObjectId,
+            ref: User,
             required: true,
         },
         doctorId: {
             type: mongoose.Schema.Types.ObjectId,
+            ref: User,
             required: true,
         },
         appointmentDate: {
@@ -32,6 +35,10 @@ const appointmentSchema = new mongoose.Schema(
             default: "Pending",
             required: true,
         },
+        notes: {
+            type: String,
+            
+}
     }
 );
 
