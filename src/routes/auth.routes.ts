@@ -75,4 +75,31 @@ router.post("/signup",registerValidator,validatorMiddleware, signup);
 
 router.post("/signin", loginValidator,validatorMiddleware, signIn);
 
+/**
+ * @swagger
+ * /api/auth/signout:
+ *   post:
+ *     summary: User signout
+ *     tags: [Auth]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Signed out successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: "Signed out successfully"
+ *       500:
+ *         description: Internal server error
+ */
+router.post('/signout', signout);
+
 export default router;

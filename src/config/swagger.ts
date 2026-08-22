@@ -12,6 +12,10 @@ const options = {
         },
         servers: [
             {
+                url: "https://carepoint-production-eff1.up.railway.app",
+                description: "Production Server (Railway)",
+            },
+            {
                 url: "http://localhost:3000",
                 description: "Local server",
             },

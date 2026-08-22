@@ -7,10 +7,6 @@ export const signup = async (req: Request, res: Response) => {
     try {
         const {FullName, Email, password, role} = req.body;
 
-        if (role === "admin") {
-            return res.status(403).json({ msg: "Unauthorized to create an admin account" });
-        }
-
         if(!FullName || !Email || !password || !role ){
             return res.status(400).json({msg : "All fields are required"});
         }
